@@ -1,0 +1,55 @@
+# .dockerignore - Exclude unnecessary files from Docker build context
+# This dramatically speeds up docker build and reduces context size
+
+# Git
+.git/
+.gitignore
+.gitmodules
+.github/
+
+# Build artifacts
+images/
+*.tar
+*.tar.gz
+
+# Documentation (not needed in image)
+*.md
+LICENSE
+CHANGELOG.md
+screenshots/
+
+# Submodules we don't need (using official base image)
+core/
+server/
+sdkjs/
+dictionaries/
+
+# Scripts (not needed in image)
+build_image.sh
+deploy_on_nas.sh
+docker-compose*.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime*
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Node modules (if any)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Keep only what we need:
+# - Dockerfile (implicit)
+# - web-apps/ (needed for COPY command)
