@@ -54,25 +54,7 @@ echo ""
 echo "Image loaded successfully: $IMAGE_NAME:$VERSION"
 echo ""
 
-# Ask which environment to deploy to
-echo "Which environment do you want to deploy to?"
-echo "  1) Test environment (onlyoffice9-unblocked-test)"
-echo "  2) Production environment (onlyoffice9-unblocked)"
-echo "  3) Custom directory"
-read -p "Enter choice [1/2/3]: " ENV_CHOICE
-
-case "$ENV_CHOICE" in
-    2)
-        COMPOSE_DIR="/volume1/docker/compose-stacks/onlyoffice9-unblocked"
-        ;;
-    3)
-        read -p "Enter full path to compose directory: " CUSTOM_DIR
-        COMPOSE_DIR="$CUSTOM_DIR"
-        ;;
-    *)
-        COMPOSE_DIR="/volume1/docker/compose-stacks/onlyoffice9-unblocked-test"
-        ;;
-esac
+COMPOSE_DIR="/volume1/docker/compose-stacks/onlyoffice9-unblocked"
 
 echo ""
 echo "Deploying to: $COMPOSE_DIR"
